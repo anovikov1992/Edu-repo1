@@ -9,3 +9,6 @@ INSERT INTO Person (id, version, first_name, age) VALUES (2, 0, 'John', 25);
 INSERT INTO Person_House (person_id, house_id) VALUES (1, 1);
 
 INSERT INTO Person_House (person_id, house_id) VALUES (1, 2);
+
+INSERT INTO Org (id, Name, FullName, inn, kpp, Adress, phone) VALUES (1, 'Первая к.', 'ООО "Первая к."',
+                                                                                12345678, 32165487, 'Н.Н.', '123-45-87');

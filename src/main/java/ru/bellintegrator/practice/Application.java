@@ -55,7 +55,7 @@ public class Application {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring REST Sample with Swagger")
+                .title("Spring REST Sample with Swagger_test")
                 .description("Spring REST Sample with Swagger")
                 .contact("https://github.com/azEsm/empty_project")
                 .version("1.0")
