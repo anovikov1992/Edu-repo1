@@ -1,24 +1,19 @@
 package ru.bellintegrator.practice.Org.service;
 
 
+import org.springframework.transaction.annotation.Transactional;
+import ru.bellintegrator.practice.Org.model.Org;
 import ru.bellintegrator.practice.Org.view.OrgView;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public interface OrgService {
-    /**
-     * Добавить новую организацию в БД
-     *
-     * @param org
-     */
-    void add(OrgView org);
+    List getAllOrg();
 
-    /**
-     * Получить список людей
-     *
-     * @return {@Organization}
-     */
-    List<OrgView> organizations();
+    void add(OrgView view) ;
+
+    Org loadByName(String Name);
 }
 
 

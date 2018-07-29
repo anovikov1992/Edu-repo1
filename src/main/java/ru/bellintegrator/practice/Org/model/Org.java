@@ -7,6 +7,8 @@ import javax.persistence.*;
 @Table (name = "Organization")
 public class Org {
 
+    public Org() {}
+
     @Id
     @GeneratedValue
     @Column(name = "Id")
@@ -28,12 +30,16 @@ public class Org {
     private String Adress;
 
     @Column(name = "phone")
-    private String phone;
+    private long phone;
 
-
-
-    public Org(String name, String fullName) {
-
+    public Org(Long id, String name, String fullName, long inn, long kpp, String adress, long phone) {
+        this.id = id;
+        Name = name;
+        FullName = fullName;
+        this.inn = inn;
+        this.kpp = kpp;
+        Adress = adress;
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -81,15 +87,14 @@ public class Org {
     }
 
     public void setAdress(String adress) {
-        this.Adress = adress;
+        Adress = adress;
     }
 
-    public String getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
-
 }

@@ -19,7 +19,9 @@ public class OrgView {
 
     public String Adress;
 
-    public String phone;
+    public long phone;
+
+
 
 
 
@@ -36,4 +38,4 @@ public class OrgView {
                 '}';
     }
 }
-//
+

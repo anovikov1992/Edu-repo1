@@ -1,38 +1,39 @@
 package ru.bellintegrator.practice.Org.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.practice.Org.dao.OrgDao;
+import ru.bellintegrator.practice.Org.dao.OrgDaoImpl;
 import ru.bellintegrator.practice.Org.model.Org;
 import ru.bellintegrator.practice.Org.view.OrgView;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class OrgServiceImpl implements OrgService {
-    private final Logger log = LoggerFactory.getLogger(getClass());
-
-    private final OrgDao dao;
 
     @Autowired
-    public OrgServiceImpl(OrgDao dao) {
-        this.dao = dao;
-    }
-    /**
-     * {@inheritDoc}
-     */
+    private OrgDao orgDao;
+
     @Override
-    @Transactional
-    public void add(OrgView view) {
-        Org organization = new Org(view.Name, view.FullName);
-        dao.save(organization);
+    public List getAllOrg() {
+        return orgDao.getAllOrg();
     }
 
     @Override
-    public List<OrgView> organizations() {
-        return null;
+    public void add(OrgView view) {
+        Org org = new Org(view.id, view.Name, view.FullName, view.inn, view.kpp, view.Adress, view.phone);
+        orgDao.save(org);
+
+    }
+
+    @Override
+    public Org loadByName(String Name) {
+        return orgDao.loadByName(Name);
     }
 }
